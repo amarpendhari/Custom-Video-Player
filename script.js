@@ -1,10 +1,5 @@
 
-      /* FullScreen
-      let x = screen.width ;
-      let y = screen.height ;
-      const fullscreen = document.getElementById('fullscreen');
-      fullscreen.addEventListener('click', () => {
-      $('.player').css({"width": "1360px","height": "786px"}) })*/
+   
         var elem = document.getElementById("myvideo");
         function openFullscreen() {
               if (elem.requestFullscreen) {
@@ -30,26 +25,18 @@
       function togglePlay(){
           const method = video.paused ? 'play' : 'pause';
           video[method]();
-          /*if(video.paused) {
-              video.play();
-          }else {
-              video.pause();
-          }*/
       }
   
       function updateButton(){
          const icon = this.paused ? '►' : '❚ ❚';
-        console.log(icon);
         toggle.textContent = icon;
       }
       
       function skip(){
-          console.log(this.dataset);
           video.currentTime += parseFloat(this.dataset.skip);
       }
      function handleRangeUpdate(){
          video[this.name] = this.value;
-         console.log(this.value)
      }
       
     function handleProgress() {
@@ -60,7 +47,6 @@
     function scrub(e) {
         const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
         video.currentTime = scrubTime;
-       console.log(scrubTime);
     }
 /*Hook up the event Listners*/
       video.addEventListener('click', togglePlay);
